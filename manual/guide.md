@@ -1,0 +1,28 @@
+# Docker Dasar
+
+### Mengambil Image MySQL dari Container Registry (Docker Hub)
+
+```
+$ docker images
+$ docker image pull mysql:8.0.1
+```
+
+### Membuat & Menjalankan MySQL di Docker Container
+
+```
+$ docker container create --name sacode_mysql mysql:8.0.1
+$ docker container start sacode_mysql -e MYSQL_ROOT_PASSWORD=sacode 
+$ docker exec -it sacode_mysql mysql -u root -p "bash"
+```
+
+### Menjalankan PHPMyAdmin di Docker Container
+
+```
+$ docker run --name phpmyadmin -d --link sacode_mysql:db -p 8080:80 phpmyadmin/phpmyadmin
+```
+
+### Menjalankan Aplikasi PHP di Docker Container
+
+```
+$ docker run -d -p 8080:80 -v "$PWD":/var/www/html php:7.4-apache
+```

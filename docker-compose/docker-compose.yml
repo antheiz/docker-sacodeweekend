@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+    php-httpd:
+        image: php:7.4-apache
+        ports:
+            - 8080:80
+        volumes:
+            - ./:/var/www/html
+
+    mariadb:
+        image: mariadb:10.6.8
+        volumes:
+            - vol-mariadb:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "salupa"
+            MYSQL_USER: "admin"
+            MYSQL_PASSWORD: "salupa"
+            MYSQL_DATABASE: "sapunyadb"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - mariadb:db
+        ports:
+            - 8081:80
+volumes:
+    vol-mariadb:
