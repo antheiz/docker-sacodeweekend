@@ -12,6 +12,21 @@ $ docker build -t sacode-php:1.1 .
 $ docker run -it --rm --name my-sacode-app -p 8080:80 sacode-php:1.1
 ```
 
+**Access Database Interactive Terminal**
+
+```
+$ docker exec -it nama_container_mysql mysql -u root -p
+```
+
+**Buka Aplikasi PHP di Browser:** 
+
+- ```localhost:8080```
+
+**Buka PHPMyAdmin di Browser:** 
+
+- ```localhost:8081```
+
+
 **Upload Images ke Docker Registry**
 
 ```

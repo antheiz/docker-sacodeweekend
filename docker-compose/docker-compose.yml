@@ -8,22 +8,22 @@ services:
         volumes:
             - ./:/var/www/html
 
-    mariadb:
-        image: mariadb:10.6.8
+    mysql:
+        image: mysql:8.0.1
         volumes:
-            - vol-mariadb:/var/lib/mysql
+            - vol-mysql:/var/lib/mysql
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: "no"
             MYSQL_ROOT_PASSWORD: "salupa"
             MYSQL_USER: "admin"
             MYSQL_PASSWORD: "salupa"
-            MYSQL_DATABASE: "sapunyadb"
+            # MYSQL_DATABASE: "nama_database"
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         links:
-            - mariadb:db
+            - mysql:db
         ports:
             - 8081:80
 volumes:
-    vol-mariadb:
+    vol-mysql:
