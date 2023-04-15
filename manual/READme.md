@@ -25,7 +25,7 @@ $ docker exec -it nama_container_mysql mysql -u root -p
 ### Menjalankan PHPMyAdmin di Docker Container
 
 ```
-$ docker run --name phpmyadmin -d --link sacode_mysql:db -p 8080:80 phpmyadmin/phpmyadmin
+$ docker run --name phpmyadmin -d --link sacode_mysql:db -p 8081:80 phpmyadmin/phpmyadmin
 ```
 
 **Buka PHPMyAdmin di Browser:** 
