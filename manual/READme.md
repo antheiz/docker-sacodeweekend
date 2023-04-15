@@ -4,7 +4,7 @@
 
 ```
 $ docker images
-$ docker image pull mysql:8.0.1
+$ docker pull mysql:8.0.1
 ```
 
 ### Membuat & Menjalankan MySQL di Docker Container
